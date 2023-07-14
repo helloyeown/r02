@@ -1,3 +1,4 @@
+import TodoList from "../components/todo/TodoList";
 import BasicLayout from "../layouts/BasicLayout";
 import TestLayout from "../layouts/TestLayout";
 
@@ -9,6 +10,8 @@ const MainPage = () => {
 		<BasicLayout>
 			<div className="bg-main h-[85vh] bg-cover bg-no-repeat">
 			</div>
+			
+			<TodoList></TodoList>
 		</BasicLayout>
 	);
 }

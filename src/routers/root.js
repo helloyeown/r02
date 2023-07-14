@@ -4,13 +4,24 @@ import AboutPage from "../pages/AboutPage";
 import ListPage from "../pages/board/ListPage";
 import IndexPage from "../pages/board/IndexPage";
 import LoadingPage from "../pages/LoadingPage"
+import LoginPage from "../pages/member/LoginPage"
 
 import { Suspense, lazy } from "react";
+
+// 로그인
+const Member_Login = lazy(() => import("../pages/member/LoginPage"))
 
 const Loading = <LoadingPage></LoadingPage>
 const Board_Index = lazy(() => import("../pages/board/IndexPage"))
 const Board_List = lazy(() => import("../pages/board/ListPage"))
 const Board_Read = lazy(() => import("../pages/board/ReadPage"))
+
+// Products
+const Products_Index = lazy(() => import("../pages/products/indexPage"))
+const Products_List = lazy(() => import("../pages/products/ListPage"))
+const Products_Register = lazy(() => import("../pages/products/RegisterPage"))
+const Products_Read = lazy(() => import("../pages/products/ReadPage"))
+const Products_Modify = lazy(() => import("../pages/products/ModifyPage"))
 
 const router = createBrowserRouter([
 	{
@@ -35,6 +46,34 @@ const router = createBrowserRouter([
 				element: <Suspense fallback={Loading}><Board_Read/></Suspense>
 			}
 		]
+	},
+
+	{
+		path: "products",
+		element: <Suspense fallback={Loading}><Products_Index/></Suspense>,
+		children: [
+			{
+				path: "list",
+				element: <Suspense fallback={Loading}><Products_List/></Suspense>
+			},
+			{
+				path: "register",
+				element: <Suspense fallback={Loading}><Products_Register/></Suspense>
+			},
+			{
+				path: "read/:pno",
+				element: <Suspense fallback={Loading}><Products_Read/></Suspense>
+			},
+			{
+				path: "modify/:pno",
+				element: <Suspense fallback={Loading}><Products_Modify/></Suspense>
+			}
+		]
+	},
+
+	{
+		path: "member/login",
+		element: <Suspense fallback={Loading}><Member_Login/></Suspense>
 	}
 ])
 
