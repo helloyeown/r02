@@ -6,6 +6,7 @@ const useCustomLogin = (fn) => {
 
 	// 커스텀 훅: 로직을 재사용 할 때
 	const loginInfo = useSelector(state => state.login)
+	// 스토어의 login을 구독
 
 	const navigate = useNavigate()
 
@@ -13,19 +14,19 @@ const useCustomLogin = (fn) => {
 	useEffect(() => {
 
 		if (fn) {
-			if(!loginInfo.signed) {
+			if(!loginInfo.email) {
 				fn(navigate)
 				return
 			}
 		}
 
-		console.log(loginInfo.signed)
+		console.log(loginInfo.email)
 
-		if(!loginInfo.signed) {
+		if(!loginInfo.email) {
 			navigate('/member/login')
 		}
 
-	}, [loginInfo.signed])
+	}, [loginInfo.email])
 
 	return {loginInfo}
 

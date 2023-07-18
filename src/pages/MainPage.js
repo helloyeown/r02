@@ -11,7 +11,6 @@ const MainPage = () => {
 			<div className="bg-main h-[85vh] bg-cover bg-no-repeat">
 			</div>
 			
-			<TodoList></TodoList>
 		</BasicLayout>
 	);
 }

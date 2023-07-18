@@ -1,20 +1,31 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import CartNav from "./CartNav";
+import { requestLogout } from "../../reducers/loginSlice";
 
 
 const LoginNav = () => {
 
-	const {email, signed} = useSelector(state => state.login)
+	const {email, loading, nickname} = useSelector(state => state.login)
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
 
-	console.log("LoginNav...............", email, signed)
+	console.log("LoginNav...............", email, loading)
 
-	if (signed) {
+	if (email !== '') {
 		return (
 			<div>
 				<div>
-					{email}
+					{email} - {nickname}
 				</div>
-		</div>
+				<div>
+					<button onClick={() => {
+						dispatch(requestLogout())
+						navigate("/")
+					}}>LOGOUT</button>
+				</div>
+				<CartNav></CartNav>
+			</div>
 		)
 	}
 

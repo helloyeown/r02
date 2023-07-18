@@ -9,9 +9,9 @@ const ReadPage = () => {
 	const {queryObj, setSearch, moveRead, moveList, moveModify} = useQueryObj()
 	const {pno} = useParams()
 
-	useCustomLogin(() => {
-		alert("로그인 해주세요.")
-	})
+	// useCustomLogin(() => {
+	// 	alert("로그인 해주세요.")
+	// })
 
 	console.log(pno)
 	console.log(queryObj)

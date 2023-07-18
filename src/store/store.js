@@ -1,3 +1,4 @@
+import cartSlice from "../reducers/cartSlice";
 import countSlice from "../reducers/countSlice";
 import loginSlice from "../reducers/loginSlice";
 import todoSlice from "../reducers/todoSlice";
@@ -10,6 +11,7 @@ export default configureStore({
 	reducer: {
 		counter: countSlice,	// 리듀서 세팅
 		todo: todoSlice,
-		login: loginSlice
+		login: loginSlice,
+		cart: cartSlice
 	}		// 리듀서는 객체
 })	// 함수의 결과물이 스토어

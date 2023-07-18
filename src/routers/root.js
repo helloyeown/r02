@@ -7,6 +7,7 @@ import LoadingPage from "../pages/LoadingPage"
 import LoginPage from "../pages/member/LoginPage"
 
 import { Suspense, lazy } from "react";
+import KakaoRedirectPage from "../pages/member/KakaoRedirectPage";
 
 // 로그인
 const Member_Login = lazy(() => import("../pages/member/LoginPage"))
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
 	{
 		path: "member/login",
 		element: <Suspense fallback={Loading}><Member_Login/></Suspense>
+	},
+	{
+		path: "member/kakao",
+		element: <KakaoRedirectPage></KakaoRedirectPage>
 	}
 ])
 
