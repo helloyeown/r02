@@ -62,6 +62,8 @@ const loginSlice = createSlice({
 			state = action.payload
 
 			setCookie("login", JSON.stringify(action.payload), 1)
+
+			return {...action.payload, loading: false}
 		})
 		.addCase(postLoginThunk.pending, (state, action) => {
 			console.log("pending")

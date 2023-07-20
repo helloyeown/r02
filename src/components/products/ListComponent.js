@@ -27,7 +27,11 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
 		getList(queryObj).then(data => {
 			console.log(data)
 			setListData(data)
-		})
+		}).catch(err => {
+      console.log("-----------------------")
+      console.log(err)
+      console.log("=======================")
+    })
 
 	}, [queryObj])
 
